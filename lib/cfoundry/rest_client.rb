@@ -12,6 +12,7 @@ module CFoundry
 
         if uri.is_a?(URI::HTTPS)
           http.use_ssl = true
+          http.ssl_version = :TLSv1
           http.verify_mode = OpenSSL::SSL::VERIFY_NONE
         end
 

@@ -104,7 +104,8 @@ module CFoundry
       
       if uri.scheme == "https"
         opts[:use_ssl] = true
-        opts[:verify_mode] = OpenSSL::SSL::VERIFY_NONE 
+        opts[:ssl_version] = :TLSv1
+        opts[:verify_mode] = OpenSSL::SSL::VERIFY_NONE
       end
 
       Net::HTTP.start(uri.host, uri.port, *proxy_options_for(uri), opts) do |http|
